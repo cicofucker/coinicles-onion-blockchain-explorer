@@ -2,12 +2,12 @@ var config = {
     testnet: false, // this is adjusted page.h if needed. dont need to change manually
     stagenet: false, // this is adjusted page.h if needed. dont need to change manually
     coinUnitPlaces: 9,
-    txMinConfirms: 5,         // corresponds to CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE in Loki
-    txCoinbaseMinConfirms: 25, // corresponds to CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW in Loki
-    coinSymbol: 'CNCO',
-    openAliasPrefix: "cnco",
+    txMinConfirms: 5,         // corresponds to CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE in Coinicles
+    txCoinbaseMinConfirms: 25, // corresponds to CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW in Coinicles
+    coinSymbol: 'CICO',
+    openAliasPrefix: "cico",
     coinName: 'Coinicles',
-    coinUriPrefix: 'loki:',
+    coinUriPrefix: 'coinicles:',
     addressPrefix: 114,
     integratedAddressPrefix: 115,
     subAddressPrefix: 116,

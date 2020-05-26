@@ -1006,7 +1006,7 @@ void add_tx_service_node_metadata(mstch::map &context, const cryptonote::transac
 
                 if (detailed) {
                     // Try to get the quorum state to figure out the vote casters & target; unless very
-                    // recent, this requires lokid to be started with --store-quorum-history (PR #702)
+                    // recent, this requires coiniclesd to be started with --store-quorum-history (PR #702)
                     std::vector<std::string> quorum_nodes;
                     COMMAND_RPC_GET_QUORUM_STATE::response response = {};
                     rpc.get_quorum_state(response, state_change.block_height, state_change.block_height, static_cast<uint8_t>(service_nodes::quorum_type::obligations));
@@ -1906,7 +1906,7 @@ show_block(uint64_t _blk_height)
     context["sum_fees"]
             = lokeg::lok_amount_to_str(sum_fees, "{:0.6f}", false);
 
-    // get loki in the block reward
+    // get coinicles in the block reward
     context["blk_reward"]
             = lokeg::lok_amount_to_str(txd_coinbase.lok_outputs - sum_fees, "{:0.6f}");
 
@@ -2722,7 +2722,7 @@ show_my_outputs(string tx_hash_str,
 
     if (lok_address_str.empty())
     {
-        return string("Loki address not provided!");
+        return string("coinicles address not provided!");
     }
 
     if (viewkey_str.empty())
@@ -2742,13 +2742,13 @@ show_my_outputs(string tx_hash_str,
         return string("Cant get tx hash due to parse error: " + tx_hash_str);
     }
 
-    // parse string representing given loki address
+    // parse string representing given coinicles address
     cryptonote::address_parse_info address_info;
 
     if (!lokeg::parse_str_address(lok_address_str,  address_info, nettype))
     {
         cerr << "Cant parse string address: " << lok_address_str << endl;
-        return string("Cant parse Loki address: " + lok_address_str);
+        return string("Cant parse coinicles address: " + lok_address_str);
     }
 
     // parse string representing given private key
@@ -4869,11 +4869,11 @@ search(string search_text)
     result_html = default_txt;
 
 
-    // check if loki address is given based on its length
+    // check if coinicles address is given based on its length
     // if yes, then we can only show its public components
     if (search_str_length == 95)
     {
-        // parse string representing given loki address
+        // parse string representing given coinicles address
         address_parse_info address_info;
 
         cryptonote::network_type nettype_addr {cryptonote::network_type::MAINNET};
@@ -4893,7 +4893,7 @@ search(string search_text)
         return show_address_details(address_info, nettype_addr);
     }
 
-    // check if integrated loki address is given based on its length
+    // check if integrated coinicles address is given based on its length
     // if yes, then show its public components search tx based on encrypted id
     if (search_str_length == 106)
     {
@@ -5408,7 +5408,7 @@ json_rawtransaction(string tx_hash_str)
         }
     }
 
-    // get raw tx json as in loki
+    // get raw tx json as in coinicles
 
     try
     {
@@ -5696,7 +5696,7 @@ json_rawblock(string block_no_or_hash)
         return j_response;
     }
 
-    // get raw tx json as in loki
+    // get raw tx json as in coinicles
 
     try
     {
@@ -6040,7 +6040,7 @@ json_outputs(string tx_hash_str,
     if (address_str.empty())
     {
         j_response["status"]  = "error";
-        j_response["message"] = "Loki address not provided";
+        j_response["message"] = "coinicles address not provided";
         return j_response;
     }
 
@@ -6071,13 +6071,13 @@ json_outputs(string tx_hash_str,
         return j_response;
     }
 
-    // parse string representing given loki address
+    // parse string representing given coinicles address
     address_parse_info address_info;
 
     if (!lokeg::parse_str_address(address_str,  address_info, nettype))
     {
         j_response["status"]  = "error";
-        j_response["message"] = "Cant parse Loki address: " + address_str;
+        j_response["message"] = "Cant parse coinicles address: " + address_str;
         return j_response;
 
     }
@@ -6265,7 +6265,7 @@ json_outputsblocks(string _limit,
     if (address_str.empty())
     {
         j_response["status"]  = "error";
-        j_response["message"] = "Loki address not provided";
+        j_response["message"] = "coinicles address not provided";
         return j_response;
     }
 
@@ -6276,13 +6276,13 @@ json_outputsblocks(string _limit,
         return j_response;
     }
 
-    // parse string representing given Loki address
+    // parse string representing given coinicles address
     address_parse_info address_info;
 
     if (!lokeg::parse_str_address(address_str, address_info, nettype))
     {
         j_response["status"]  = "error";
-        j_response["message"] = "Cant parse Loki address: " + address_str;
+        j_response["message"] = "Cant parse coinicles address: " + address_str;
         return j_response;
 
     }
@@ -6431,7 +6431,7 @@ json_networkinfo()
     if (!get_loki_network_info(j_info))
     {
         j_response["status"]  = "error";
-        j_response["message"] = "Cant get Loki network info";
+        j_response["message"] = "Cant get coinicles network info";
         return j_response;
     }
 

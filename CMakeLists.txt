@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 set(PROJECT_NAME
-        lokblocks)
+        cicoblocks)
 
 
 project(${PROJECT_NAME})
@@ -14,17 +14,17 @@ endif()
 
 
 if (NOT LOKI_DIR)
-    set(LOKI_DIR ~/loki)
+    set(LOKI_DIR ~/coinicle)
 endif()
 
 message(STATUS LOKI_DIR ": ${LOKI_DIR}")
 
 set(LOKI_SOURCE_DIR ${LOKI_DIR}
-        CACHE PATH "Path to the root directory for Loki")
+        CACHE PATH "Path to the root directory for Coinicles")
 
 # set location of loki build tree
 set(LOKI_BUILD_DIR ${LOKI_SOURCE_DIR}/build/release/
-        CACHE PATH "Path to the build directory for Loki")
+        CACHE PATH "Path to the build directory for Coinicles")
 
 set(MY_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}/cmake"
         CACHE PATH "The path to the cmake directory of the current project")

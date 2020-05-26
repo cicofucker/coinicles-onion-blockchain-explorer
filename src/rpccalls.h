@@ -47,8 +47,8 @@ struct has_destructor
 
 namespace cryptonote
 {
-// declare struct in loki's cryptonote namespace.
-// loki should provide definition for this,
+// declare struct in coinicles's cryptonote namespace.
+// coinicles should provide definition for this,
 // but we need to have it declared as we are going to
 // check if its definition exist or not. depending on this
 // we decide what gets to be defined as
@@ -160,14 +160,14 @@ public:
 
             if (!err.empty())
             {
-                cerr << "Error connecting to Loki daemon due to "
+                cerr << "Error connecting to Coinicles daemon due to "
                      << err << endl;
                 return false;
             }
         }
         else
         {
-            cerr << "Error connecting to Loki daemon at "
+            cerr << "Error connecting to Coinicles daemon at "
                  << daemon_url << endl;
             return false;
         }
